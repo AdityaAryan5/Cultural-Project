@@ -1,0 +1,216 @@
+# Netflix Recommendation System
+
+A collaborative filtering recommendation system built using the Netflix Prize Dataset. This project compares **Singular Value Decomposition (SVD)** and **Item-Based Collaborative Filtering (Item-CF)** for personalized movie recommendations.
+
+---
+
+# Project Overview
+
+The goal of this project is to:
+
+* Predict user ratings for unseen movies
+* Generate personalized Top-K movie recommendations
+* Compare matrix factorization and neighborhood-based recommendation approaches
+* Evaluate recommendation quality using ranking and prediction metrics
+
+The notebook includes:
+
+* Data Processing Pipeline
+* Model Training Pipeline
+* Evaluation Framework
+* Recommendation Generation Module
+* Result Visualization
+
+---
+
+
+
+---
+
+# Dataset Setup
+
+This project uses the **Netflix Prize Dataset**, publicly available on Kaggle.
+
+## Step 1 — Download Dataset
+
+Download the dataset from:
+
+https://www.kaggle.com/datasets/netflix-inc/netflix-prize-data
+
+The download contains approximately 100 million movie ratings.
+
+---
+
+## Step 2 — Create Data Directory
+
+Create the following folder:
+
+```text
+Netflix-Recommendation-System/
+│
+├── data/
+```
+
+---
+
+## Step 3 — Copy Dataset Files
+
+Place the following files inside the `data/` folder:
+
+```text
+data/
+├── combined_data_1.txt
+├── combined_data_2.txt
+├── combined_data_3.txt
+├── combined_data_4.txt
+└── movie_titles.csv
+```
+
+---
+
+## Dataset Statistics
+
+| Statistic    | Value       |
+| ------------ | ----------- |
+| Ratings      | 100,480,507 |
+| Users        | 480,189     |
+| Movies       | 17,770      |
+| Rating Scale | 1–5         |
+| Date Range   | 1998–2005   |
+
+For computational efficiency, the notebook samples approximately 5 million ratings and further creates a dense subset of active users and popular movies.
+
+---
+
+# Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/<your-username>/Netflix-Recommendation-System.git
+
+cd Netflix-Recommendation-System
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Running the Project
+
+Launch Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+Open:
+
+```text
+netflix_recommend_system.ipynb
+```
+
+Run all cells from top to bottom.
+
+---
+
+# Methodology
+
+The notebook implements and compares:
+
+## 1. SVD Matrix Factorization
+
+* Learns latent user preferences
+* Learns latent movie features
+* Predicts ratings using latent factor interactions
+
+## 2. Item-Based Collaborative Filtering
+
+* Computes item-item similarity
+* Recommends movies similar to previously liked items
+* Provides higher recommendation coverage
+
+---
+
+# Evaluation Metrics
+
+Models are evaluated using:
+
+### Rating Prediction
+
+* RMSE
+* MAE
+
+### Ranking Quality
+
+* Precision@10
+* Recall@10
+* MAP@10
+* NDCG@10
+* Hit Rate@10
+
+### System Performance
+
+* Coverage
+* Training Time
+
+---
+
+# Results
+
+The experimental results show that **SVD consistently outperforms Item-CF** on rating prediction and ranking metrics.
+
+| Metric       | SVD    | Item-CF |
+| ------------ | ------ | ------- |
+| RMSE         | 0.9023 | 0.9614  |
+| MAE          | 0.6978 | 0.7532  |
+| MAP@10       | 0.0677 | 0.0161  |
+| Precision@10 | 0.1125 | 0.0471  |
+| Recall@10    | 0.1212 | 0.0450  |
+| NDCG@10      | 0.1449 | 0.0452  |
+| Hit Rate@10  | 0.6497 | 0.3113  |
+| Coverage     | 0.3514 | 0.7962  |
+
+---
+
+# Screenshots
+
+## Experimental Results
+
+![Results](screenshots/results.png)
+
+Additional visualizations and recommendation examples are available in the notebook and project report.
+
+---
+
+# Reproducing Results
+
+1. Download the Netflix Prize Dataset.
+2. Place all dataset files in the `data/` directory.
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Open `netflix_recommend_system.ipynb`.
+5. Run all cells sequentially.
+
+The notebook will:
+
+* Parse the Netflix dataset
+* Create train/test splits
+* Train SVD and Item-CF models
+* Evaluate model performance
+* Generate recommendation examples
+* Produce result visualizations
+
+---
+
+# Author
+
+Aditya Aryan
